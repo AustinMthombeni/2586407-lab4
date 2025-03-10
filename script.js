@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
     async function getCountryInfo() {
         const country = countryInput.value.trim();  
-        const url = "https://restcountries.com/v3.1/name/" + country + "?fullText=true";
+        const url = "https://restcountries.com/v3.1/name/" + country;
+        
 
         try {
             const response = await fetch(url);
@@ -51,10 +52,11 @@ document.addEventListener('DOMContentLoaded', function () {
         regionItem.innerText = `Region: ${countryInfo[0].region}`;
 
         const flagItem = document.createElement('li');
-        const flagLabel = document.createElement('span');
-        flagLabel.innerText = 'Flag: ';
+        const flagLabel = document.createTextNode('Flag: ');
         flagItem.appendChild(flagLabel);
         flagItem.appendChild(flag);
+
+        
 
        
         ul.appendChild(capitalItem);
